@@ -198,7 +198,7 @@ p  { margin-bottom: 1rem; }
 .hero {
   background:
     linear-gradient(135deg, rgba(26,60,94,0.92) 0%, rgba(13,36,64,0.88) 60%, rgba(26,60,94,0.85) 100%),
-    url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    url('img/house-exterior-1.jpg') center/cover no-repeat;
   color: var(--white);
   padding: 90px 0 80px;
   position: relative;
@@ -671,7 +671,7 @@ section.alt-bg { background: var(--light); }
 .cta-banner {
   background:
     linear-gradient(135deg, rgba(26,60,94,0.93) 0%, rgba(13,36,64,0.95) 100%),
-    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    url('img/house-exterior-2.jpg') center/cover no-repeat;
   color: var(--white);
   padding: 70px 0;
   text-align: center;
@@ -777,7 +777,7 @@ footer h4 {
 .page-hero {
   background:
     linear-gradient(135deg, rgba(26,60,94,0.93) 0%, rgba(13,36,64,0.95) 100%),
-    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    url('img/house-exterior-2.jpg') center/cover no-repeat;
   color: var(--white);
   padding: 70px 0;
   text-align: center;
