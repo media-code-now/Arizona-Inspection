@@ -194,4 +194,53 @@ document.addEventListener('DOMContentLoaded', () => {
     startAuto();
   }
 
+  /* --- Image Slider (areas page) --- */
+  const imgSlider = document.querySelector('.img-slider');
+  if (imgSlider) {
+    const track = imgSlider.querySelector('.img-slider-track');
+    const imgs = imgSlider.querySelectorAll('.img-slider-track img');
+    const prevBtn = imgSlider.querySelector('.img-slider-prev');
+    const nextBtn = imgSlider.querySelector('.img-slider-next');
+    const dotsContainer = imgSlider.querySelector('.img-slider-dots');
+    let current = 0;
+    let autoTimer;
+
+    imgs.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Image ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+      current = (index + imgs.length) % imgs.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      imgSlider.querySelectorAll('.slider-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function startAuto() {
+      autoTimer = setInterval(() => goTo(current + 1), 3500);
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      startAuto();
+    }
+
+    prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); resetAuto(); }
+    });
+
+    startAuto();
+  }
+
 });
