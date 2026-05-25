@@ -1,5 +1,5 @@
 /* ============================================
-   ARIZONA INSPECTION SERVICES — MAIN JS
+   INSPECTIONS ARIZONA — MAIN JS
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
